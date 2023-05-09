@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add a Customer</title>
+  </head>
+  <body>
+    <h1>Add a Customer</h1>
+    <form action="/add" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" required><br>
+      <label for="email">Email:</label>
+      <input type="email" name="email" required><br>
+      <label for="phone">Phone:</label>
+      <input type="tel" name="phone" pattern="^\+380\d{9}$" required><br>
+      <label for="address">Address:</label>
+      <textarea name="address" rows="4" cols="30" required></textarea><br>
+      <button type="submit">Add Customer</button>
+    </form>
+    <a href="/">Back to Customers</a>
+  </body>
+</html>

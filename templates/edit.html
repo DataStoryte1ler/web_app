@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Customer</title>
+  </head>
+  <body>
+    <h1>Edit Customer</h1>
+    <form action="/edit/{{ customer.customer_id }}" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" value="{{ customer.name }}" required><br>
+      <label for="email">Email:</label>
+      <input type="email" name="email" value="{{ customer.email }}" required><br>
+      <label for="phone">Phone:</label>
+      <input type="tel" name="phone" pattern="^\+380\d{9}$" value="{{ customer.phone }}" required><br>
+      <label for="address">Address:</label>
+      <textarea name="address" rows="4" cols="30" required>{{ customer.address }}</textarea><br>
+      <button type="submit">Save Changes</button>
+    </form>
+    <a

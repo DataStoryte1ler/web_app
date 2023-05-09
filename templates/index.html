@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Customers</title>
+  </head>
+  <body>
+    <h1>Customers</h1>
+    <form action="/search" method="POST">
+      <input type="text" name="search_query" placeholder="Search by name...">
+      <button type="submit">Search</button>
+    </form>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+      {% for customer in customers %}
+        <tr>
+          <td>{{ customer.customer_id }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.phone }}</td>
+          <td>{{ customer.address }}</td>
+          <td>
+            <a href="/edit/{{ customer.customer_id }}"><button type="submit">Edit</button></a>
+            <form action="/delete/{{ customer.customer_id }}" method="POST" style="display: inline-block;">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    <a href="/add"><button type="submit">Add a customer</button></a>
+  </body>
+</html>
